@@ -1,0 +1,22 @@
+{% extends "layout/basic.html" %} {% load embed_video_tags %}
+
+{% block title %}Материалы{% endblock %}
+
+{% block content %}
+{% for a in author %}
+<div>
+	<h2>{{ a.name}} {{a.soname}} </h2>
+	<img class="fit-picture" src="{{ a.photo.url }}" alt="My image">
+</div>
+{% endfor %}
+
+<div>
+	<h2>{{ mat.name }} </h2>
+	{% video mat.video2 'medium' %}
+	{% autoescape off %}
+	<p>{{ mat.text }}</p>
+	{% endautoescape %}
+
+</div>
+
+{% endblock %}

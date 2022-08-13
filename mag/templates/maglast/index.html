@@ -1,0 +1,53 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<div>
+	<h2>{{ maglast.name}} {{maglast.published_str}} </h2>
+	<h3>{{ maglast.anotation_head }}</h3>
+	{% autoescape off %}
+	{{ maglast.anotation }}
+	{% endautoescape %}
+	{% for b in blocks %}
+
+
+
+	<p>
+	 <div id="zatemnenie">
+      <div id="okno">
+        Аннотация к блоку
+	  	<p>
+		{% autoescape off %}
+		{{b.anotation}}
+		{% endautoescape %}
+		</p>
+		  <br>
+        <a href="#" class="close">X</a>
+      </div>
+    </div>
+
+    <a href="#zatemnenie"><h4>{{b.name}}</h4></a>
+	
+	<li>
+			<button id="left-btn"><i class="arrow"></i></button>
+	</li>
+		{% for m in mat %}
+		{% if m.block_id == b.id %}
+
+	<li>
+		<img class="fit-picture" src="{{ m.auth.photo.url }}" alt="My image">
+	<p> {{m.auth.name}} {{m.auth.soname}} </p>
+	<h2> <a href ="http://127.0.0.1:8000/mag/mat/{{m.id}}/">{{m.name}}</a> </h2>
+	</li>
+	{% endif  %}
+		{% endfor %}
+	<li>
+	<button id="right-btn"><i class="arrow"></i></button>
+    </li>
+{% endfor %}
+
+
+</div>
+{% endblock %}

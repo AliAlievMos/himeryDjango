@@ -1,0 +1,24 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Автор_ки{% endblock %}
+
+
+{% block content %}
+<div>
+	<img class="fit-picture" src="{{ author.photo.url }}" alt="My image">
+	<h2>{{ author.name}} {{author.soname}} </h2>
+</div>
+<p>Биография:</p>
+
+{% autoescape off %}
+{{ author.bio }}
+{% endautoescape %}
+
+<div>
+	<p>Материалы на сайте:</p>
+	{% for m in mat %}
+	<h2> <a href ="http://127.0.0.1:8000/mag/mat/{{m.id}}/">{{m.name}}</a> </h2>
+	{% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Все номера{% endblock %}
+
+{% block content %}
+{% for m in mag %}
+
+<div>
+	<h2><a href ="maglast/{{m.id}}/">{{ m.name}} {{m.published_str}}</a> </h2>
+	<p>{{ m.anotation_head }}</p>
+	{% autoescape off %}
+	{{ m.anotation }}
+	{% endautoescape %}
+</div>
+{% endfor %}
+{% endblock %}
+

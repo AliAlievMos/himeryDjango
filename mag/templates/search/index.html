@@ -1,0 +1,51 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+
+
+<form action="{%url 'search_result' %}"  method="get">
+   <input type="text" name="q" placeholder="ПОИСК">
+</form>
+	<h3>Результаты поиска:</h3>
+	{% if author %}
+	<h4>Найдено автор_ок:</h4>
+	{% for a in author %}
+<div>
+	<img class="fit-picture" src="{{ a.photo.url }}" alt="My image">
+	<h4> <a href ="http://127.0.0.1:8000/authors/author/{{a.id}}/">{{ a.name}} {{a.soname}}</a> </h4>
+</div>
+	{% endfor %}
+	{% endif %}
+
+
+	{% if mag %}
+	<h4>Найдено номеров:</h4>
+	{% for m in mag %}
+<div>
+	<h4><a href ="http://127.0.0.1:8000/mag/maglast/{{m.id}}/">{{ m.name}} {{m.published_str}}</a> </h4>
+</div>
+	{% endfor %}
+	{% endif %}
+
+	{% if mat %}
+	<h4>Найдено материалов:</h4>
+	{% for m in mat %}
+<div>
+<h4> <a href ="http://127.0.0.1:8000/mag/mat/{{m.id}}/">{{m.name}}</a> </h4></div>
+	{% endfor %}
+	{% endif %}
+
+
+	{% if mat_text %}
+	<h4>Найдено в материалах:</h4>
+	{% for m in mat_text %}
+<div>
+<h4> <a href ="http://127.0.0.1:8000/mag/mat/{{m.id}}/">{{m.name}}</a> </h4></div>
+
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}

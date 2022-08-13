@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Химеры :: {% block title %}{% endblock %}</title>
+		<link rel="stylesheet" type="text/css"
+			  href="{% static 'mag/style.css' %}">
+	</head>
+	<body>
+		<header>
+			<ul>
+				<li>
+						<h2>Химеры</h2>
+						<h3>журнал поэтического сопротивления</h3>
+				</li>
+				<li>
+					<a href="{% url 'search' %}">ПОИСК</a>
+				</li>
+
+			</ul>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="http://127.0.0.1:8000/mag/maglast/">Главная</a></li>
+				<li><a href="http://127.0.0.1:8000/mag/">Все номера</a></li>
+				<li><a href="http://127.0.0.1:8000/authors/">Автор_ки</a></li>
+				<li><a href="http://127.0.0.1:8000/contacts/">Контакты</a></li>
+			</ul>
+		</nav>
+
+		<section>
+		{% block content %}
+		{% endblock %}
+		</section>
+	</body>
+</html>
