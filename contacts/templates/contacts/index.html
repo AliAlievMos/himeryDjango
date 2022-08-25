@@ -4,10 +4,12 @@
 
 {% block content %}
 {% for c in contacts %}
-
-<div>
+<section role="search">
+	<div>
 	<h2>Контакты</h2>
 	<p>{{c.cont}}</p>
 </div>
+</section>
+
 {% endfor %}
 {% endblock %}

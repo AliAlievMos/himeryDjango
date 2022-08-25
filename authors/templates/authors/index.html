@@ -7,15 +7,25 @@
 
 
 {% block content %}
+<hr>
 {% for a in authors %}
 
 
 <div>
-	<img class="fit-picture" src="{{ a.photo.url }}" alt="My image">
-	<h2> <a href ="/authors/author/{{a.id}}/">{{a.name}} {{a.soname}}</a> </h2>
+	<ul>
+		<li>
+			<img class="fit-picture" src="{{ a.photo.url }}" alt="My image">
+
+		</li>
+		<li>
+				<h2> <a href ="/authors/author/{{a.id}}/">{{a.name}} {{a.soname}}</a> </h2>
+
+		</li>
+	</ul>
+	</div>
+<hr>
 	{% endfor %}
 
-</div>
 
 {% endblock %}
 

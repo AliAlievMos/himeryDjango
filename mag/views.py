@@ -18,7 +18,15 @@ def index_for_last(requests):
     maglast = Number.objects.earliest('-published')
     blocks = Block.objects.filter(number=maglast.id).order_by('-spell').reverse()
     mat = Material.objects.filter(number=maglast.id).order_by('-spell').reverse()
-    context = {'maglast': maglast, 'blocks': blocks, 'mat': mat}
+    mat_blocks = []
+    # for m in mat:
+    #     if m.block_id in mat_blocks:
+    #         mat_blocks[m.block_id].append(m)
+    #
+    #     else:
+    #         mat_blocks[m.block_id] = [m]
+
+    context = {'maglast': maglast, 'blocks': blocks, 'mat': mat,'mat_blocks': mat_blocks }
     
     return render(requests, 'maglast/index.html', context)
 
