@@ -8,32 +8,42 @@
 		<title>Химеры :: {% block title %}{% endblock %}</title>
 		<link rel="stylesheet" type="text/css"
 			  href="{% static 'mag/style.css' %}">
+			  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
 	</head>
 	<body>
 		<header>
-			<ul>
-				<li>
-						<h2>Химеры</h2>
-						<h3>журнал поэтического сопротивления</h3>
-				</li>
-				<li>
-					<a href="{% url 'search' %}">ПОИСК</a>
-				</li>
-
-			</ul>
+			<h1>Химеры</h1>
+			<br>
+			<br>
+			<h3><i>журнал поэтического сопротивления</i></h3>
+			<br>
+			<br>
+			<br>
 		</header>
 		<nav>
 			<ul>
-				<li><a href="http://127.0.0.1:8000/mag/maglast/">Главная</a></li>
-				<li><a href="http://127.0.0.1:8000/mag/">Все номера</a></li>
-				<li><a href="http://127.0.0.1:8000/authors/">Автор_ки</a></li>
-				<li><a href="http://127.0.0.1:8000/contacts/">Контакты</a></li>
+				<li><a href="http://127.0.0.1:8000/mag/maglast/"><h2>Главная</h2></a></li>
+				<li><a href="http://127.0.0.1:8000/mag/"><h2>Все номера</h2></a></li>
+				<li><a href="http://127.0.0.1:8000/authors/"><h2>Автор_ки</h2></a></li>
+				<li><a href="{% url 'search' %}"><h2>Поиск</h2></a></li>
+				<li><a href="http://127.0.0.1:8000/contacts/"><h2>Контакты</h2></a></li>
 			</ul>
 		</nav>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<section>
 		{% block content %}
 		{% endblock %}
 		</section>
+	 <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+<!--		<script  src="mag/script.js"></script>-->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
 </html>

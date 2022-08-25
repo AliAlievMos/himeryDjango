@@ -39,6 +39,7 @@ def material_page(requests, material_id):
     return render(requests, 'mat/index.html', context)
 
 def search_result(requests):
+    no_result = ''
     query = requests.GET.get('q')
     s = str(query).title().split(' ')
     mag = Number.objects.filter(name=s[0])
@@ -65,10 +66,12 @@ def search_result(requests):
                 if i in m.text.title():
                     mat_text = Material.objects.filter(id=m.id)
                     return mat_text
-
+    if not mag and not blocks and not mat and not author and not mat_textt:
+        no_result = 'ничего не найдено'
     mat_text = f(mat_textt)
     context = {'mag': mag, 'blocks': blocks, 'mat': mat,'author' : author, 'query': query, 's': s,
-               'mat_text': mat_text}
+               'mat_text': mat_text, 'no_result': no_result}
+
     return render(requests, 'search/index.html', context)
 
 def search(requests):

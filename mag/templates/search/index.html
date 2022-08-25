@@ -8,9 +8,18 @@
 <form action="{%url 'search_result' %}"  method="get">
    <input type="text" name="q" placeholder="ПОИСК">
 </form>
-	<h3>Результаты поиска:</h3>
+<section role="search">
+<!--	<h2>Результаты поиска:</h2>-->
+	<br>
+	<br>
+	<br>
+	<br>
+	{% if no_result %}
+	<h3>{{ no_result }}</h3>
+	{% endif %}
+
 	{% if author %}
-	<h4>Найдено автор_ок:</h4>
+	<h3>Найдено автор_ок:</h3>
 	{% for a in author %}
 <div>
 	<img class="fit-picture" src="{{ a.photo.url }}" alt="My image">
@@ -43,7 +52,7 @@
 	{% for m in mat_text %}
 <div>
 <h4> <a href ="http://127.0.0.1:8000/mag/mat/{{m.id}}/">{{m.name}}</a> </h4></div>
-
+</section>
 {% endfor %}
 {% endif %}
 
