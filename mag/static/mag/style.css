@@ -28,9 +28,7 @@ h5 {
 h6 {
     padding: 20px;
 }
-hr{
- border-top: 1pt solid #fbaaaa !important;
-}
+
 
 form {
     text-align: center;
@@ -333,7 +331,7 @@ li.dot {
 }
 
 .carousel-card {
-    height:800px!important;
+    height:100%!important;
    background:white;
    border-radius: 4px;
    box-shadow:0 0.0625rem 0.125rem 0 rgba(0,0,0,0.2)
@@ -344,4 +342,36 @@ li.dot {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow-x: hidden;
+}
+
+/*Search bar*/
+
+
+.search {
+  width: 100% !important;
+  position: relative !important;
+  display: flex !important;
+}
+
+.searchTerm {
+  width: 100% !important;
+  border: 5px solid black !important;
+  padding: 5px !important;
+  height: 30px !important;
+  border-radius: 5px 0 0 5px !important;
+  outline: none !important;
+  color: red !important;
+}
+
+.searchTerm:focus{
+  color: red !important;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 35% !important ;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

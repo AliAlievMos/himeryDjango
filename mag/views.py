@@ -18,15 +18,9 @@ def index_for_last(requests):
     maglast = Number.objects.earliest('-published')
     blocks = Block.objects.filter(number=maglast.id).order_by('-spell').reverse()
     mat = Material.objects.filter(number=maglast.id).order_by('-spell').reverse()
-    mat_blocks = []
-    # for m in mat:
-    #     if m.block_id in mat_blocks:
-    #         mat_blocks[m.block_id].append(m)
-    #
-    #     else:
-    #         mat_blocks[m.block_id] = [m]
 
-    context = {'maglast': maglast, 'blocks': blocks, 'mat': mat,'mat_blocks': mat_blocks }
+
+    context = {'maglast': maglast, 'blocks': blocks, 'mat': mat}
     
     return render(requests, 'maglast/index.html', context)
 
@@ -70,13 +64,13 @@ def search_result(requests):
     mat_textt = Material.objects.all()
     def f(mat_textt):
         for m in mat_textt:
-            for i in s:
-                if i in m.text.title():
+            for i1 in s:
+                if i1 in m.text.title():
                     mat_text = Material.objects.filter(id=m.id)
                     return mat_text
-    if not mag and not blocks and not mat and not author and not mat_textt:
-        no_result = 'ничего не найдено'
     mat_text = f(mat_textt)
+    if not mag and not blocks and not mat and not author and not mat_text:
+        no_result = 'ничего не найдено'
     context = {'mag': mag, 'blocks': blocks, 'mat': mat,'author' : author, 'query': query, 's': s,
                'mat_text': mat_text, 'no_result': no_result}
 

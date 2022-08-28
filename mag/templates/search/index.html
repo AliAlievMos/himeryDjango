@@ -3,11 +3,19 @@
 {% block title %}Поиск{% endblock %}
 
 {% block content %}
+<div class="wrap">
+   <div class="search">
+	   <form action="{%url 'search_result' %}"  method="get">
+		   <input type="text" class="searchTerm" name="q" placeholder="ПОИСК" size="1000">
+		</form>
+<!--		   <input type="text" class="searchTerm" name="q" placeholder="ПОИСК" size="1000">-->
 
+   </div>
+</div>
 
-<form action="{%url 'search_result' %}"  method="get">
-   <input type="text" name="q" placeholder="ПОИСК">
-</form>
+<!--<form action="{%url 'search_result' %}"  method="get">-->
+<!--   <input type="text" name="q" placeholder="ПОИСК" size="1000">-->
+<!--</form>-->
 <section role="search">
 <!--	<h2>Результаты поиска:</h2>-->
 	<br>

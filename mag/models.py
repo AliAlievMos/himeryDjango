@@ -43,6 +43,7 @@ class Material(models.Model):
     number = models.ForeignKey('Number', null=False, on_delete=models.PROTECT, related_name='numberr', verbose_name='Номер')    
     spell = models.CharField(max_length=50, verbose_name='Порядоковый номер автора в блоке(цифрой)')
     video2 = EmbedVideoField(blank=True, null=True, verbose_name='Видео' )
+    audio = models.FileField(blank=True, null=True,upload_to='musics/', verbose_name='Аудио')
 
 
     def __str__(self):

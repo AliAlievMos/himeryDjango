@@ -9,11 +9,11 @@
 <div>
 	<h1><a href ="maglast/{{m.id}}/">{{ m.name}} {{m.published_str}}</a> </h1>
 	<h2>{{ m.anotation_head }}</h2>
-	<h2>
+	<h3>
 	{% autoescape off %}
 	{{ m.anotation }}
 	{% endautoescape %}
-		</h2>
+		</h3>
 </div>
 <hr>
 {% endfor %}
